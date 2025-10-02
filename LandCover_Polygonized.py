@@ -154,9 +154,7 @@ def compute_point_metrics(annulus_geom, landcover_gdf, landcover_sindex, point):
                 "impervious_edge_density": 0,
                 "effective_albedo": 0})
 
-    # =================================================================
-    # 5. Composite UHI Index (Improved Normalization)
-    # =================================================================
+    # Composite UHI Index (Improved Normalization)
     try:
         # Normalize metrics to [0,1] range
         norm = {
@@ -218,12 +216,6 @@ def process_row(args):
     point_geom = row.geometry
     row_metrics = {}
     
-    # Compute full-buffer metrics
-    # max_radius = annuli[-1][1]
-    # full_buffer = point_geom.buffer(max_radius * 3.28084)
-    # full_metrics = compute_point_metrics(full_buffer, global_landcover_gdf, global_landcover_sindex, point_geom)
-    # for k, v in full_metrics.items():
-    #     row_metrics[f"full_{k}"] = v
 
     # Process each annulus for this point
     for inner_r, outer_r in annuli:

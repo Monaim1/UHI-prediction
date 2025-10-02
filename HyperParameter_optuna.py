@@ -1,6 +1,5 @@
 import optuna
 from catboost import CatBoostRegressor, Pool
-from sklearn.metrics import r2_score
 import pandas as pd
 from functools import partial
 from sklearn.model_selection import cross_val_score, train_test_split
